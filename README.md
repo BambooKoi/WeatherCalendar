@@ -1,5 +1,5 @@
 # Weather Calendar
-I wanted a more customizable option to what IFTTT's version of `If this (rain/snow) than that (add Google Calendar event)`. My version provides type of precipitation (e.g. Thunder, Light Rain, Snow, etc), precipitation amount (in mm) and temperature for the day.
+I wanted a more customizable option to what IFTTT's version of `If this (rain/snow) than that (add Google Calendar event)`. My version provides type of precipitation (e.g. Thunder, Light Rain, Snow, etc), precipitation amount (in mm) and temperature for the day. It is added as an all-day event to Google Calendar with the ability to send a push notification to the user when rain is expected to be more than 5mm.
 
 ## Table of Contents
 - [Built With](#Built-With)
