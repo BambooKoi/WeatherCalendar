@@ -182,10 +182,10 @@ for date in forecast:
       print(f'No precipitation for {day}.')
 
       # Check Google Calendar
-      now = timestamp + timedelta(days = 1)
+      now = timestamp + timedelta(days = -1)
       now = now.isoformat() + '-05:00'
       # If any events occuring on {day} or after {day}:
-      events_result = service.events().list(calendarId=cal_id, timeMin=now, maxResults=1, singleEvents=True, orderBy='startTime').execute()
+      events_result = service.events().list(calendarId=cal_id, timeMin=now, maxResults=2, singleEvents=True, orderBy='startTime').execute()
       events = events_result.get('items', [])
 
       print(f'Checking if event already exists for deletion.')
@@ -204,7 +204,7 @@ for date in forecast:
           break
         else:
           print(f"> Next weather event is on {update_event['start']['date']}.")
-          print(f"OWM {day} != {update_event['start']['date']}")
+          print(f"OWM {day} != {update_event['start']['date']}.")
           continue
       print(f"> No weather events found on {day} for deletion.")
 
