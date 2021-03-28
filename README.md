@@ -25,6 +25,7 @@ I wanted a more customizable option to what IFTTT's version of `If this (rain/sn
         - Feels like temperature (in °C) for the entire day
 - When it runs, it will check if there is already a weather event and update it (including weather to add or remove a notification for the night before).
 - If a forecasted day for precipitation no longer has precipitation, it will delete the event.
+- Probability of precipitation
 
 ## Future Goals:
 - Add weather alerts/advisories

@@ -90,12 +90,15 @@ for date in forecast:
         else:
           notify = {'method': 'popup', 'minutes': 5 * 60}
 
+      # Probability of precipitation
+      pop = f'{date["pop"]}%'
+
       # High & Low Temperatures
       high_t = (f'High: {date["temp"]["max"]}\u00b0C')
       low_t = (f'Low: {date["temp"]["min"]}\u00b0C')
 
       # Event name for gCAL
-      event_name = f'{emoji} {weather_descript} | {precipitation} | {high_t} {low_t}'
+      event_name = f'{emoji} {weather_descript} {pop} | {precipitation} | {high_t} {low_t}'
 
       # Feels like temperatures for description
       feels_like = ['<b>Feels Like:</b>']
@@ -195,6 +198,7 @@ for date in forecast:
         if update_event['start']['date'] == day and 'mm' in update_event['summary']:
           print(f"OWM {day} == gCAL: {update_event['start']['date']}.")
           print('Event found with matching date and precipitation.')
+          
           # Get eventID
           event_id = (update_event['id'])
 
