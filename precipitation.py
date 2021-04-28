@@ -33,30 +33,30 @@ def precipitation():
       # If precipitation,
       if 'Rain' in weather_descript or 'Snow' in weather_descript:
         print('Precipitation found!')
+        # Probability of precipitation
+        pop = f'{int(date["pop"] * 100)}%'
+
         if 'Rain' in weather_descript and 'Snow' in weather_descript:
           emoji = '\U0001F328'
           precipitation = f'Rain: {date["rain"]} mm Snow: {date["snow"]} mm'
-          if ( date['rain'] < 5 and date['snow'] < 5 ) or ( date["pop"] < 50 ):
+          if ( date['rain'] < 5 and date['snow'] < 5 ) or ( date["pop"] < 0.50 ):
             notify = None
           else:
             notify =  {'method': 'popup', 'minutes': 5 * 60}
         elif 'Rain' in weather_descript:
           emoji = '\U0001F327'
           precipitation = f'{date["rain"]} mm'
-          if date['rain'] < 5 or date["pop"] < 50:
+          if date['rain'] < 5 or date["pop"] < 0.50 :
             notify = None
           else:
             notify = {'method': 'popup', 'minutes': 5 * 60}
         elif 'Snow' in weather_descript:
           emoji = '\U00002744'
           precipitation = f'{date["snow"]} mm'
-          if date['snow'] < 5 or date["pop"] < 50:
+          if date['snow'] < 5 or date["pop"] < 0.50 :
             notify = None
           else:
             notify = {'method': 'popup', 'minutes': 5 * 60}
-
-        # Probability of precipitation
-        pop = f'{date["pop"]}%'
 
         # High & Low Temperatures
         high_t = (f'High: {date["temp"]["max"]}\u00b0C')
